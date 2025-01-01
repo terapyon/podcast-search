@@ -174,3 +174,4 @@ db/*
 data/*
 sample/*
 .python-version
+uv.lock
