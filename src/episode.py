@@ -87,7 +87,7 @@ def make_df(episode: Episode) -> pd.DataFrame:
     data = []
     for text in episode.texts:
         data.append([episode.id_, text.part, text.start, text.end, text.text])
-    df = pd.DataFrame(data, columns=["id", "part", "start", "end", "text"])
+    df = pd.DataFrame(data, columns=["id", "part", "start", "end_", "text"])
     return df
 
 
