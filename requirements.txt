@@ -1,0 +1,12 @@
+sentence-transformers 
+fugashi
+sentencepiece
+unidic-lite
+torch
+tqdm
+ipywidgets
+pandas
+numpy
+polars
+pyarrow
+duckdb
