@@ -43,11 +43,12 @@ def make_episode(id_: int, title: str, srt_filename: str) -> Episode:
     start = None
     end = None
     text = None
-    first = None
-    second = None
-    line_text = None
+
     with open(srt_filename) as f:
         for line in f:
+            first = None
+            second = None
+            line_text = None
             if line.strip().isdigit():
                 continue
             elif line.strip() == "":
