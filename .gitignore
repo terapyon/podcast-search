@@ -173,5 +173,6 @@ cython_debug/
 db/*
 data/*
 sample/*
+store/*
 .python-version
 uv.lock

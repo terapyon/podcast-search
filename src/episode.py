@@ -8,6 +8,7 @@ import pandas as pd
 
 HERE = Path(__file__).parent
 DATA_DIR = HERE.parent / "data"
+STORE_DIR = HERE.parent / "store"
 divider_time = timedelta(minutes=5)
 RE_PODCAST = re.compile(r"[_-](\d+)[_-]")
 
@@ -103,11 +104,14 @@ def get_srt_files():
 
 def main():
     lst = sorted(get_srt_files(), key=lambda x: x["id"])
-    print(lst)
-    # for item in lst:
-    #     episode = make_episode(item["id"], item.get("title"), DATA_DIR / item["srt"])
-    #     df = make_df(episode)
-    #     df.to_parquet(DATA_DIR / f"{item['id']}.parquet")
+    print(f"{len(lst)=}")
+    for item in lst:
+        print(item["id"])
+        episode = make_episode(item["id"], item.get("title"), DATA_DIR / item["srt"])
+        df = make_df(episode)
+        # print(df)
+        df.to_parquet(STORE_DIR / f"podcast-{item['id']}.parquet")
+        # break
 
 
 if __name__ == "__main__":
