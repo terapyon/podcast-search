@@ -50,7 +50,6 @@ conn = get_conn()
 titles = conn.execute(title_query).df()
 selected_title: list[str] | None = st.multiselect("Select title", titles["title"])
 if selected_title:
-    st.write(f"Selected title: {selected_title}")
     selected_ids = titles.loc[titles.loc[:, "title"].isin(selected_title), "id"].tolist()
 else:
     st.write("All titles")
